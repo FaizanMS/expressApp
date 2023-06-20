@@ -34,6 +34,19 @@ window.getWeather = ()=>{
         let citynamecaps = cityname0.toUpperCase()
         let newCityName  = citynamecaps+cityname1
         document.querySelector('#weathercity').innerHTML = newCityName + "&nbsp;not found"
+        document.querySelector("#temp").innerHTML =  "N/A"
+        document.querySelector("#feels").innerHTML = "N/A"
+        document.querySelector("#humidity").innerHTML = "N/A"
+        document.querySelector("#pressure").innerHTML = "N/A"
+
+        
+        document.querySelector("#modalText").innerHTML =  `The city (${c_name}) you are trying to search is not available in our data set. <br> Available Cities: Karachi, Lahore, Islamabad, Quetta, Peshawar`
+
+        let modal = ()=>{
+            document.getElementById('modalButton').click();
+          }
+
+          modal()
 
 
     })
