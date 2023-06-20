@@ -1,18 +1,12 @@
 
 import express from 'express'
 import path from 'path'
-const app = express();
-const port = process.env.PORT || 27015
+import cors from 'cors';
 const __dirname = path.resolve();
-
-app.get('/', (req, res) => {
-  res.send(
-
-    `Hello World`
+const app = express();
+const port = process.env.PORT || 27001
 
 
-  )
-})
 
 
 app.get('/weather/:cityName', (req, res) => {
@@ -89,10 +83,10 @@ app.get('/weather/:cityName', (req, res) => {
     let userCityName = req.params.cityName.toLowerCase();
     let requestedWeatherData = weatherData[userCityName];
     if(requestedWeatherData){
-       req.send(requestedWeatherData)
+       res.send(requestedWeatherData)
     }
     else{
-        req.status(404).send(
+        res.status(404).send(
             `Weather data is not available for ${req.params.cityName}`
         )
     }
